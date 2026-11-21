@@ -1,0 +1,68 @@
+{
+  "HikeNav_PRD_v0.1.md": {
+    "mtime": 1795192901.2641408,
+    "seen": 1795241941.2184498,
+    "ast_hash": "86114cf594905875a4191089ad5d9eab",
+    "semantic_hash": "86114cf594905875a4191089ad5d9eab"
+  },
+  "HikeNav_PRD_v0.2.md": {
+    "mtime": 1795236237.0226278,
+    "seen": 1795241941.2184558,
+    "ast_hash": "96bc6a4ecd3a931e20bb8544aabce4a3",
+    "semantic_hash": "96bc6a4ecd3a931e20bb8544aabce4a3"
+  },
+  "HikeNav_UX_v0.1.md": {
+    "mtime": 1795237047.7219872,
+    "seen": 1795241941.2184584,
+    "ast_hash": "dfc3c71576fefe0485819a002ef1fc19",
+    "semantic_hash": "dfc3c71576fefe0485819a002ef1fc19"
+  },
+  "assets/photos/ATTRIBUTION.md": {
+    "mtime": 1795241006.063382,
+    "seen": 1795241941.2184596,
+    "ast_hash": "581d8fb6f2b0ca71fc676666c6ee5f54",
+    "semantic_hash": "581d8fb6f2b0ca71fc676666c6ee5f54"
+  },
+  "design.md": {
+    "mtime": 1795241649.482701,
+    "seen": 1795241941.2184606,
+    "ast_hash": "4f6e8cf52ec6234fa9e5460808022d12",
+    "semantic_hash": "4f6e8cf52ec6234fa9e5460808022d12"
+  },
+  "assets/photos/merbabu-green.jpg": {
+    "mtime": 1795240989.5290003,
+    "seen": 1795241941.2184615,
+    "ast_hash": "0e35d55fd7e930d94b883ce55eb1b911",
+    "semantic_hash": "0e35d55fd7e930d94b883ce55eb1b911"
+  },
+  "assets/photos/merbabu-sabana.jpg": {
+    "mtime": 1795240974.8807757,
+    "seen": 1795241941.2184625,
+    "ast_hash": "15711479935e5671581b4d36d5d8d9b8",
+    "semantic_hash": "15711479935e5671581b4d36d5d8d9b8"
+  },
+  "assets/photos/merbabu-suwanting.jpg": {
+    "mtime": 1795240985.7125516,
+    "seen": 1795241941.2184632,
+    "ast_hash": "97474ceb0b45a4c308eb7c7b73ed9321",
+    "semantic_hash": "97474ceb0b45a4c308eb7c7b73ed9321"
+  },
+  "assets/photos/merbabu-view.jpg": {
+    "mtime": 1795240969.6014118,
+    "seen": 1795241941.218464,
+    "ast_hash": "26574efe151d888cde2582564ef4f1ac",
+    "semantic_hash": "26574efe151d888cde2582564ef4f1ac"
+  },
+  "assets/photos/sindoro.jpg": {
+    "mtime": 1795240995.3603518,
+    "seen": 1795241941.218465,
+    "ast_hash": "e8f2d64eecb32ff7c48ac4fb0a45bcd2",
+    "semantic_hash": "e8f2d64eecb32ff7c48ac4fb0a45bcd2"
+  },
+  "assets/photos/sumbing.jpg": {
+    "mtime": 1795240991.769741,
+    "seen": 1795241941.2184658,
+    "ast_hash": "77edf4569362dc0fd364bd84bd751e62",
+    "semantic_hash": "77edf4569362dc0fd364bd84bd751e62"
+  }
+}

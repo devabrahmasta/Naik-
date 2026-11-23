@@ -1,0 +1,8 @@
+name: hikenav_workspace
+description: "Monorepo workspace for HikeNav offline GNSS hiking navigation."
+environment:
+  sdk: ^3.13.5
+
+workspace:
+  - apps/mobile
+  - packages/geo_core

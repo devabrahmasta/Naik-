@@ -8,4 +8,5 @@ export 'src/models/local_point.dart';
 export 'src/gating/fix_gating.dart';
 export 'src/projection/local_plane.dart';
 export 'src/cross_track/off_route_detector.dart';
+export 'src/cross_track/route_distance.dart';
 export 'src/eta/tobler_eta.dart';

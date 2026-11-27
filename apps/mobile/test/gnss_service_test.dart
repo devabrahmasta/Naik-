@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hikenav_mobile/features/gnss/gnss_service.dart';
 import 'package:geo_core/geo_core.dart';
@@ -56,6 +55,16 @@ void main() {
       await service.dispose();
 
       expect(received.length, equals(30));
+    });
+
+    test('defaultStatusStream() menghasilkan snapshot satelit dengan konstelasi dan C/N0',
+        () async {
+      final snapshots =
+          await ReplayGnssSource.defaultStatusStream(ticks: 3).toList();
+      expect(snapshots.length, equals(3));
+      expect(snapshots.first.visibleCount, equals(12));
+      expect(snapshots.first.usedCount, equals(9));
+      expect(snapshots.first.averageCn0Used, isNotNull);
     });
   });
 }

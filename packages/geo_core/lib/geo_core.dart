@@ -1,6 +1,8 @@
-/// Geo Core: Pure Dart geospatial library for HikeNav
+/// HikeNav Geo Core: pure Dart, no Flutter, Android or SQLite imports.
 library;
 
+export 'src/geo_point.dart';
+export 'src/gpx.dart';
 export 'src/models/gnss_fix.dart';
 export 'src/models/local_point.dart';
 export 'src/gating/fix_gating.dart';

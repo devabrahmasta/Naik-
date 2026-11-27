@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SINTETIS: garis buatan untuk uji perangkat lunak, BUKAN jalur pendakian asli. -->
+<gpx version="1.1" creator="HikeNav tim (sintetis)" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>SINTETIS - bukan jalur asli</name>
+    <trkseg>
+      <trkpt lat="-7.770000" lon="110.377000"><ele>120</ele></trkpt>
+      <trkpt lat="-7.769100" lon="110.377000"><ele>121</ele></trkpt>
+      <trkpt lat="-7.768200" lon="110.377500"><ele>123</ele></trkpt>
+      <trkpt lat="-7.767300" lon="110.378200"><ele>124</ele></trkpt>
+      <trkpt lat="-7.766400" lon="110.378200"><ele>126</ele></trkpt>
+      <trkpt lat="-7.765500" lon="110.378900"><ele>127</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

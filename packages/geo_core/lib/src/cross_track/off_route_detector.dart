@@ -1,4 +1,5 @@
 import 'dart:math' as math;
+
 import '../models/local_point.dart';
 
 class CrossTrackResult {
@@ -79,20 +80,38 @@ class OffRouteDetector {
   final double k; // Pengali akurasi (default 2)
   final int minConsecutiveFixes; // Minimal 5 fix
   final Duration minDuration; // Minimal 15 detik
+  final Duration alarmInterval; // Alarm diulang tiap 60 detik
 
   bool _isOffRoute = false;
   int _consecutiveOffRouteFixes = 0;
   DateTime? _firstOffRouteTime;
   int _consecutiveOnRouteFixes = 0;
+  DateTime? _lastAlarmTime;
+  bool _shouldAlarm = false;
+  bool _isWeakSignal = false;
 
   OffRouteDetector({
     this.tMin = 30.0,
     this.k = 2.0,
     this.minConsecutiveFixes = 5,
     this.minDuration = const Duration(seconds: 15),
+    this.alarmInterval = const Duration(seconds: 60),
   });
 
   bool get isOffRoute => _isOffRoute;
+
+  /// True hanya pada update yang harus membunyikan alarm.
+  bool get shouldAlarm => _shouldAlarm;
+
+  /// True setelah [weakSignal] dipanggil, sampai ada fix bagus lagi.
+  bool get isWeakSignal => _isWeakSignal;
+
+  /// Dipanggil untuk fix yang ditolak gating karena akurasi buruk.
+  /// Hitungan fix tidak diubah, dan alarm tidak bunyi.
+  void weakSignal() {
+    _isWeakSignal = true;
+    _shouldAlarm = false;
+  }
 
   /// Memperbarui status berdasarkan jarak ke rute dan akurasi fix
   bool update({
@@ -133,6 +152,20 @@ class OffRouteDetector {
       }
     }
 
+    _isWeakSignal = false;
+    _shouldAlarm = false;
+    if (_isOffRoute) {
+      // Alarm pertama langsung, lalu tiap alarmInterval. Kalau jatahnya jatuh
+      // saat sinyal lemah, alarm bunyi di fix bagus berikutnya ini.
+      if (_lastAlarmTime == null ||
+          timestamp.difference(_lastAlarmTime!) >= alarmInterval) {
+        _shouldAlarm = true;
+        _lastAlarmTime = timestamp;
+      }
+    } else {
+      _lastAlarmTime = null;
+    }
+
     return _isOffRoute;
   }
 
@@ -141,5 +174,8 @@ class OffRouteDetector {
     _consecutiveOffRouteFixes = 0;
     _firstOffRouteTime = null;
     _consecutiveOnRouteFixes = 0;
+    _lastAlarmTime = null;
+    _shouldAlarm = false;
+    _isWeakSignal = false;
   }
 }

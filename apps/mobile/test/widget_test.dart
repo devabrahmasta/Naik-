@@ -1,6 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hikenav_mobile/features/gnss/gnss_status_screen.dart';
+import 'package:hikenav_mobile/features/onboarding/location_permission_screen.dart';
 import 'package:hikenav_mobile/main.dart';
 
 void main() {
@@ -33,6 +34,7 @@ void main() {
     expect(find.text('HikeNav'), findsOneWidget);
     expect(find.text('HikeNav Offline GNSS'), findsOneWidget);
     expect(find.text('Cek Status GNSS'), findsOneWidget);
+    expect(find.text('Penggunaan Pertama'), findsOneWidget);
 
     await tester.tap(find.text('Cek Status GNSS'));
     await tester.pumpAndSettle();
@@ -40,5 +42,13 @@ void main() {
     expect(find.byType(GnssStatusScreen), findsOneWidget);
     expect(find.text('Status GNSS'), findsOneWidget);
     expect(find.text('Izin lokasi diperlukan'), findsOneWidget);
+
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Penggunaan Pertama'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(LocationPermissionScreen), findsOneWidget);
   });
 }

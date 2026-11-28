@@ -10,3 +10,5 @@ export 'src/gating/fix_gating.dart';
 export 'src/projection/local_plane.dart';
 export 'src/cross_track/off_route_detector.dart';
 export 'src/eta/tobler_eta.dart';
+export 'src/elevation/srtm_elevation.dart';
+export 'src/elevation/elevation_profile.dart';

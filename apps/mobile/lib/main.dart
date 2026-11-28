@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geo_core/geo_core.dart';
 import 'package:hikenav_mobile/core/theme/app_theme.dart';
-import 'package:hikenav_mobile/features/gnss/gnss_status_screen.dart';
+// import 'package:hikenav_mobile/features/gnss/gnss_status_screen.dart';
 import 'package:hikenav_mobile/features/map/map_screen.dart';
 
 void main() {

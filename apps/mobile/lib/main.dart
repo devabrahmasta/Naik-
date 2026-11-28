@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geo_core/geo_core.dart';
 import 'package:hikenav_mobile/core/theme/app_theme.dart';
 import 'package:hikenav_mobile/features/gnss/gnss_status_screen.dart';
+import 'package:hikenav_mobile/features/map/map_screen.dart';
 
 void main() {
   runApp(const HikeNavApp());
@@ -83,16 +84,33 @@ class HikeNavHomePage extends StatelessWidget {
                   width: double.infinity,
                   child: ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 340),
-                    child: FilledButton.icon(
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute<void>(
-                            builder: (_) => const GnssStatusScreen(),
-                          ),
-                        );
-                      },
-                      icon: const Icon(Icons.satellite_alt_rounded),
-                      label: const Text('Cek Status GNSS'),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        FilledButton.icon(
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute<void>(
+                                builder: (_) => const GnssStatusScreen(),
+                              ),
+                            );
+                          },
+                          icon: const Icon(Icons.satellite_alt_rounded),
+                          label: const Text('Cek Status GNSS'),
+                        ),
+                        const SizedBox(height: 12),
+                        OutlinedButton.icon(
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute<void>(
+                                builder: (_) => const OfflineMapScreen(),
+                              ),
+                            );
+                          },
+                          icon: const Icon(Icons.map_rounded),
+                          label: const Text('Buka Peta Offline'),
+                        ),
+                      ],
                     ),
                   ),
                 ),

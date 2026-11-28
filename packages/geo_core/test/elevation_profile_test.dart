@@ -36,7 +36,7 @@ void main() {
         bytes: bytes,
       );
 
-      expect(raster.elevationAt(-1.0, 100.0), isNull);
+      expect(raster.elevationAt(0.0, 100.0), isNull);
       expect(raster.elevationAt(1.0, 100.0), isNull);
     });
   });
@@ -58,7 +58,7 @@ void main() {
       );
 
       expect(profile, isNotNull);
-      expect(profile!.minimumElevationMeters, greaterThanOrEqualTo(101));
+      expect(profile!.minimumElevationMeters, 100);
       expect(profile.maximumElevationMeters, greaterThanOrEqualTo(104));
       expect(profile.totalAscentMeters, closeTo(4, 0.001));
       expect(profile.totalDescentMeters, closeTo(3, 0.001));

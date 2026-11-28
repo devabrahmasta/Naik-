@@ -1,6 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hikenav_mobile/features/gnss/gnss_status_screen.dart';
+import 'package:hikenav_mobile/features/map/package_download_screen.dart';
 import 'package:hikenav_mobile/main.dart';
 
 void main() {
@@ -33,6 +34,7 @@ void main() {
     expect(find.text('HikeNav'), findsOneWidget);
     expect(find.text('HikeNav Offline GNSS'), findsOneWidget);
     expect(find.text('Cek Status GNSS'), findsOneWidget);
+    expect(find.text('Unduh Paket Offline'), findsOneWidget);
 
     await tester.tap(find.text('Cek Status GNSS'));
     await tester.pumpAndSettle();

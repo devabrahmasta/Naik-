@@ -4,6 +4,7 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodChannel
+import android.os.StatFs
 
 /**
  * Entry point native Android.
@@ -47,6 +48,34 @@ class MainActivity : FlutterActivity() {
             flutterEngine.dartExecutor.binaryMessenger,
             GnssChannelPlugin.COMPASS_CHANNEL_NAME
         ).setStreamHandler(gnssPlugin.CompassStreamHandler())
+
+        MethodChannel(
+            flutterEngine.dartExecutor.binaryMessenger,
+            "com.hikenav/package_control"
+        ).setMethodCallHandler { call, result ->
+            when (call.method) {
+                "getStorageStats" -> {
+                    val stat = StatFs(applicationContext.filesDir.absolutePath)
+                    val blockSize = stat.blockSizeLong
+                    val availableBytes = stat.availableBlocksLong * blockSize
+                    val totalBytes = stat.blockCountLong * blockSize
+                    result.success(
+                        mapOf(
+                            "availableBytes" to availableBytes,
+                            "totalBytes" to totalBytes
+                        )
+                    )
+                }
+                "openStorageSettings" -> {
+                    val intent = android.content.Intent(
+                        android.provider.Settings.ACTION_INTERNAL_STORAGE_SETTINGS
+                    ).addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                    result.success(true)
+                }
+                else -> result.notImplemented()
+            }
+        }
     }
 
     override fun onRequestPermissionsResult(
